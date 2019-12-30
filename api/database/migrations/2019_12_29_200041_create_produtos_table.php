@@ -32,7 +32,10 @@ class CreateProdutosTable extends Migration
             $table->foreign('marca_id')->references('id')->on('marcas');
 
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('catagoria_produtos');
+            $table->foreign('categoria_id')->references('id')->on('categoria_produtos');
+
+            $table->unsignedBigInteger('secao_id');
+            $table->foreign('secao_id')->references('id')->on('secao_estoques');
 
             
 
