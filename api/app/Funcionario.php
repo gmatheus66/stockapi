@@ -25,5 +25,8 @@ class Funcionario extends Model
         'created_at',
         'updated_at'
     ];
-    
+
+    public function empresa(){
+        return $this->belongsTo('App\Empresa');
+    }
 }

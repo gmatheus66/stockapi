@@ -24,4 +24,8 @@ class Estoque extends Model
     public function empresa(){
         return $this->belongsTo('App\Empresa');
     }
+
+    public function secao(){
+        return $this->hasMany('App\SecaoEstoque');
+    }
 }

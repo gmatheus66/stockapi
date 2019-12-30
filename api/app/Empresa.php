@@ -26,4 +26,8 @@ class Empresa extends Model
     public function estoque(){
         return $this->hasMany('App\Estoque');
     }
+
+    public function funcionario(){
+        return $this->hasMany('App\Funcionario');
+    }
 }
