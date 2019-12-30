@@ -24,6 +24,11 @@ class CreateFuncionariosTable extends Migration
             $table->string('cidade');
             $table->string('pais');
             $table->string('estado');
+            $table->string('cargo');
+
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
+            
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateSecaoEstoquesTable extends Migration
     {
         Schema::create('secao_estoques', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('descricao');
+
+            $table->unsignedBigInteger('estoque_id');
+            $table->foreign('estoque_id')->references('id')->on('estoques');
             $table->timestamps();
         });
     }
