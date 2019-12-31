@@ -20,9 +20,9 @@ class CreateProdutosTable extends Migration
             $table->decimal('preco_custo',8,2);
             $table->decimal('lucro',8,2);
             $table->decimal('preco_venda',8,2);
-            $table->decimal('icms',3,2);
-            $table->decimal('subst_tributaria',3,2);
-            $table->integer('cst_nfe');
+            $table->decimal('icms',3,2)->nullable();
+            $table->decimal('subst_tributaria',3,2)->nullable();
+            $table->integer('cst_nfe')->nullable();
             $table->integer('ncm_nfe');
             $table->enum('unidade_medida', ['UN','PC','KG','CX','CJ']);
             $table->enum('origem', ['Nacional','Extrangeiro']);
@@ -36,6 +36,9 @@ class CreateProdutosTable extends Migration
 
             $table->unsignedBigInteger('secao_id');
             $table->foreign('secao_id')->references('id')->on('secao_estoques');
+
+            $table->unsignedBigInteger('fornecedor_id');
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedors');
 
             
 

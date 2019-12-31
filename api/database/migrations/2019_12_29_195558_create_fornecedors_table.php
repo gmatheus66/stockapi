@@ -17,10 +17,10 @@ class CreateFornecedorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('razao_social');
             $table->string('nome_fantasia');
-            $table->string('cnpj')->unique();
+            $table->string('cnpj');
             $table->string('endereco');
             $table->string('cep');
-            $table->string('numero_residencia');
+            $table->integer('numero_residencia');
             $table->string('bairro');
             $table->string('cidade');
             $table->string('pais');
