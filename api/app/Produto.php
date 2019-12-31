@@ -22,7 +22,9 @@ class Produto extends Model
         'origem',
         'codigo_barras',
         'marca_id',
-        'categoria_id'
+        'categoria_id',
+        'secao_id',
+        'fornecedor_id'
     ];
 
     protected $guarded = [

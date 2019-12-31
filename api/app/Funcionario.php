@@ -17,7 +17,9 @@ class Funcionario extends Model
         'bairro',
         'cidade',
         'pais',
-        'estado'
+        'estado',
+        'cargo',
+        'empresa_id'
     ];
 
     protected $guarded =[

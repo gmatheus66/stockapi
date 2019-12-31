@@ -65,7 +65,7 @@ class EmpresaController extends Controller
 
         $validator = Validator::make($request->all(),[
             'razao' =>'required|string|max:30',
-            'cnpj' => 'required|string|min:18|max:18|unique:empresas,cnpj',
+            'cnpj' => 'required|string|min:18|max:18',
             'nome_fantasia' => 'required|string|max:25',
             'ddd' => 'required|numeric',
             'telefone' => 'required|numeric',
@@ -81,7 +81,7 @@ class EmpresaController extends Controller
             return response()->json($validator->errors(), 404);
         }
         if(sizeof($validatorid->errors()) > 0 ){
-            return response()->json($validator->errors(), 404);
+            return response()->json($validatorid->errors(), 404);
         }
 
         $ep_count = Empresa::where('id', $id)->count();
@@ -146,8 +146,8 @@ class EmpresaController extends Controller
             return response()->json(['data' => ['msg' => 'Esta Empresa nao pode ser removida porque nao existe']], 500);
         }
         //return response()->json($medicao ,201);
-        $json_medicao = ['data' => [$empresa]];
-        return response()->json($json_medicao ,201);
+        $json = ['data' => [$empresa]];
+        return response()->json($json ,201);
     }
 
 }

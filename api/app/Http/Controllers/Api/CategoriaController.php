@@ -59,7 +59,7 @@ class CategoriaController extends Controller
         }
 
         $categoria = CategoriaProduto::where('id', $id)->get();
-        $teste = count($marca);
+        $teste = count($categoria);
         if($teste != 0 ){
             $data = ['data' => [$categoria]];
             return response()->json($categoria,200);
@@ -88,8 +88,8 @@ class CategoriaController extends Controller
             return response()->json(['data' => ['msg' => 'Esta Categoria nao pode ser removida porque nao existe']], 500);
         }
         //return response()->json($medicao ,201);
-        $json_medicao = ['data' => [$categoria]];
-        return response()->json($json_medicao ,201);
+        $json = ['data' => [$categoria]];
+        return response()->json($json ,201);
 
     }
 
@@ -107,7 +107,7 @@ class CategoriaController extends Controller
         }
 
         if(sizeof($validatorid->errors()) > 0 ){
-            return response()->json($validator->errors(), 404);
+            return response()->json($validatorid->errors(), 404);
         }
 
         $cat_count = CategoriaProduto::where('id', $id)->count();
@@ -128,4 +128,6 @@ class CategoriaController extends Controller
 
     }
 
+
+   
 }
